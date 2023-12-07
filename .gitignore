@@ -30,3 +30,19 @@
 *.exe
 *.out
 *.app
+x64/
+
+# data files
+data/
+*.txt
+
+
+# visual studio files
+.vs/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+
+# vscode artifacts
+.vscode/
