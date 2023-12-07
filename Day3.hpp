@@ -22,7 +22,7 @@ public:
         {
             for (size_t x = 0; x < grid[y].size(); ++x)
             {
-                if (grid[y][x] == '#')
+                if (grid[y][x] != '.' && !std::isdigit(grid[y][x]))
                 {
                     symbols.push_back(std::make_pair(x, y));
                 }
