@@ -1,4 +1,4 @@
-# pragma once
+#pragma once
 
 #include <iostream>
 #include <fstream>
@@ -9,19 +9,16 @@
 #include "Utils.hpp"
 #include "Day.hpp"
 
-class Day1 : public Day {
+class Day1 : public Day
+{
 private:
 	std::string path;
-	std::map<std::string, std::string> digits {
-		{"one", "1"}, {"two", "2"}, {"three", "3"},
-		{"four", "4"}, {"five", "5"}, {"six", "6"},
-		{"seven", "7"}, {"eight", "8"}, {"nine", "9"}, 
-		{"zero", "0"}
-	};
+	std::map<std::string, std::string> digits{
+		{"one", "1"}, {"two", "2"}, {"three", "3"}, {"four", "4"}, {"five", "5"}, {"six", "6"}, {"seven", "7"}, {"eight", "8"}, {"nine", "9"}, {"zero", "0"}};
 
 public:
 	Day1(std::string path) : path(path) {}
-	std::string run () override
+	std::string run() override
 	{
 		std::string part1 = this->part1();
 		std::string part2 = this->part2();
@@ -36,18 +33,18 @@ public:
 		}
 		std::vector<int> values;
 		std::string line;
-		while (std::getline(file, line)) 
+		while (std::getline(file, line))
 		{
 			std::string str = "";
-			for(char c : line)
+			for (char c : line)
 			{
-				if (isdigit(c)) 
+				if (isdigit(c))
 				{
 					str += c;
 					break;
 				}
 			}
-			for (int i = line.length()-1; i >= 0; --i)
+			for (int i = line.length() - 1; i >= 0; --i)
 			{
 				if (isdigit(line[i]))
 				{
@@ -55,7 +52,8 @@ public:
 					break;
 				}
 			}
-			if (str.length() < 2) {
+			if (str.length() < 2)
+			{
 				return "Bad read";
 			}
 			int num = std::stoi(str);
@@ -78,7 +76,7 @@ public:
 		{
 			std::string str = "";
 			// go forwards through line
-			for (int i=0; i<line.length(); ++i)
+			for (int i = 0; i < line.length(); ++i)
 			{
 				// check if current character is a digit
 				if (isdigit(line[i]))
@@ -88,7 +86,7 @@ public:
 				}
 				// check if current character is start of a key in nums
 				bool found = false;
-				for (auto& [key, value] : digits)
+				for (auto &[key, value] : digits)
 				{
 					if (line.substr(i, key.length()) == key)
 					{
@@ -97,11 +95,12 @@ public:
 						break;
 					}
 				}
-				if (found) break;
+				if (found)
+					break;
 			}
 
 			// go backwards through line
-			for (int i=line.length(); i >= 0; --i)
+			for (int i = line.length(); i >= 0; --i)
 			{
 				// check if current character is a digit
 				if (isdigit(line[i]))
@@ -111,7 +110,7 @@ public:
 				}
 				// check if current character is start of a key in nums
 				bool found = false;
-				for (auto& [key, value] : digits)
+				for (auto &[key, value] : digits)
 				{
 					if (line.substr(i, key.length()) == key)
 					{
@@ -120,9 +119,11 @@ public:
 						break;
 					}
 				}
-				if (found) break;
+				if (found)
+					break;
 			}
-			if (str.length() < 2) {
+			if (str.length() < 2)
+			{
 				return "Bad read";
 			}
 			int num = std::stoi(str);

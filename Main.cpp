@@ -4,7 +4,7 @@
 #include "Day2.hpp"
 #include "Day3.hpp"
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
     if (argc < 2)
     {
@@ -25,24 +25,27 @@ int main(int argc, char** argv)
         day = utils::split(day, '.')[0];
         std::cout << day << ":" << std::endl;
 
-        if (day == "day1") {
+        if (day == "day1")
+        {
             Day1 d(file);
             std::cout << d.run() << std::endl;
         }
-        else if (day == "day2") {
+        else if (day == "day2")
+        {
             Day2 d(file);
             std::cout << d.run() << std::endl;
         }
-        else if (day == "day3") {
+        else if (day == "day3")
+        {
             Day3 d(file);
             std::cout << d.run() << std::endl;
         }
-        else {
+        else
+        {
             std::cout << "ERROR: invalid day" << std::endl;
             return 1;
         }
-
     }
-    
-	return 0;
+
+    return 0;
 }
